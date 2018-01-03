@@ -1,13 +1,13 @@
 Vimfiles
 ========
 
-## Install
+ ## Install
 
-``` bash
-$ git clone git@github.com:bchagas/vimfiles.git ~/.vim
-$ echo "source ~/.vim/vimrc" > ~/.vimrc
-$ cd ~/.vim
-$ git submodule update --init
-$ alias vundle='vim +BundleInstall +qall'
-$ vundle
-```
+ ``` bash
+ $ git clone https://github.com/jaimelopesflores/vimfiles.git ~/.vim
+ $ echo "source ~/.vim/vimrc" > ~/.vimrc
+ $ cd ~/.vim
+ $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
+ $ alias vundle='vim +BundleInstall +qall'
+ $ vundle
+ ```

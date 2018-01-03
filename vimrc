@@ -155,6 +155,9 @@ nmap <Tab> gt
 nmap <S-Tab> gT
 nmap ( ()<left>
 
+"key mapping for formatting
+nmap <C-f> =7j
+
 "key mapping for clean search
 nmap <silent> <leader>/ :nohlsearch<CR>
 "snipmate setup

@@ -150,6 +150,10 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 "key mapping for saving file
 nmap <C-s> :w<CR>
 
+"key mapping for block collapsing
+nmap <S-a> za
+nmap <S-z> zi
+
 "key mapping for tab navigation
 nmap <Tab> gt
 nmap <S-Tab> gT

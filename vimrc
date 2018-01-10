@@ -121,7 +121,7 @@ colorscheme molokai
 set guitablabel=%M%t
 
 "map to CommandT TextMate style finder
-let g:ctrlp_map = '<c-t>'
+let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX

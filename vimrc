@@ -151,7 +151,6 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 nmap <C-s> :w<CR>
 
 "key mapping for block collapsing
-nmap <S-a> za
 nmap <S-z> zi
 
 "key mapping for tab navigation

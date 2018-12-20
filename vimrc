@@ -14,6 +14,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
+Bundle 'jelera/vim-javascript-syntax'
 Bundle 'kien/ctrlp.vim'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
@@ -27,6 +28,7 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'tpope/vim-surround.git'
 Bundle 'elzr/vim-json'
 Bundle 'chemzqm/vim-jsx-improve'
+Bundle 'ternjs/tern_for_vim'
 
 "" Vundle Plugins
 Plugin 'rizzatti/dash.vim'

@@ -27,6 +27,7 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'tpope/vim-surround.git'
 Bundle 'elzr/vim-json'
 Bundle 'chemzqm/vim-jsx-improve'
+Bundle 'fatih/vim-go'
 
 "" Vundle Plugins
 Plugin 'rizzatti/dash.vim'

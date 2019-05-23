@@ -14,6 +14,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
+Bundle 'jelera/vim-javascript-syntax'
 Bundle 'kien/ctrlp.vim'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"

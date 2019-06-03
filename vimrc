@@ -117,7 +117,7 @@ autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
 syntax on
 set background=dark
-colorscheme molokai
+colorscheme flejz
 
 set guitablabel=%M%t
 

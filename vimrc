@@ -28,6 +28,7 @@ Bundle 'tpope/vim-surround.git'
 Bundle 'elzr/vim-json'
 Bundle 'chemzqm/vim-jsx-improve'
 Bundle 'fatih/vim-go'
+Bundle 'w0rp/ale'
 
 "" Vundle Plugins
 Plugin 'rizzatti/dash.vim'
@@ -199,3 +200,11 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:airline_powerline_fonts = 1
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'
+
+" ALE linting
+let b:ale_fixers = {'javascript': ['eslint']}
+let g:ale_completion_enabled = 1
+let g:ale_set_highlights = 0
+
+nmap <silent> <C-k> <Plug>(ale_next_wrap)
+nmap <silent> <C-j> <Plug>(ale_previous_wrap)

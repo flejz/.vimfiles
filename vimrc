@@ -203,7 +203,6 @@ let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'
 
 " ALE linting
 let b:ale_fixers = {'javascript': ['eslint']}
-let g:ale_completion_enabled = 1
 let g:ale_set_highlights = 0
 
 nmap <silent> <C-k> <Plug>(ale_next_wrap)

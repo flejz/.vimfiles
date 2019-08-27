@@ -128,9 +128,9 @@ end
 if &t_Co > 255
    hi Boolean         ctermfg=135
    hi Character       ctermfg=144
-   hi Number          ctermfg=135
+   hi Number          ctermfg=141               cterm=bold
    hi String          ctermfg=185
-   hi Conditional     ctermfg=161               cterm=bold
+   hi Conditional     ctermfg=206               cterm=bold
    hi Constant        ctermfg=135               cterm=bold
    hi Cursor          ctermfg=16  ctermbg=253
    hi Debug           ctermfg=225               cterm=bold
@@ -154,7 +154,7 @@ if &t_Co > 255
    hi Ignore          ctermfg=244 ctermbg=232
    hi IncSearch       ctermfg=193 ctermbg=16
 
-   hi Keyword         ctermfg=161               cterm=bold
+   hi Keyword         ctermfg=206               cterm=bold
    hi Label           ctermfg=229               cterm=none
    hi Macro           ctermfg=193
    hi SpecialKey      ctermfg=81
@@ -162,7 +162,7 @@ if &t_Co > 255
    hi MatchParen      ctermfg=16  ctermbg=208 cterm=bold
    hi ModeMsg         ctermfg=229
    hi MoreMsg         ctermfg=229
-   hi Operator        ctermfg=161
+   hi Operator        ctermfg=206
 
    " complete menu
    hi Pmenu           ctermfg=81  ctermbg=16
@@ -173,22 +173,22 @@ if &t_Co > 255
    hi PreCondit       ctermfg=118               cterm=bold
    hi PreProc         ctermfg=118
    hi Question        ctermfg=81
-   hi Repeat          ctermfg=161               cterm=bold
+   hi Repeat          ctermfg=206               cterm=bold
    hi Search          ctermfg=253 ctermbg=66
 
    " marks column
    hi SignColumn      ctermfg=118 ctermbg=235
-   hi SpecialChar     ctermfg=161               cterm=bold
+   hi SpecialChar     ctermfg=206               cterm=bold
    hi SpecialComment  ctermfg=38                cterm=bold
    hi Special         ctermfg=81  ctermbg=232
    hi SpecialKey      ctermfg=245
 
-   hi Statement       ctermfg=161               cterm=bold
+   hi Statement       ctermfg=206               cterm=bold
    hi StatusLine      ctermfg=238 ctermbg=253
    hi StatusLineNC    ctermfg=244 ctermbg=232
    hi StorageClass    ctermfg=208
    hi Structure       ctermfg=81
-   hi Tag             ctermfg=161
+   hi Tag             ctermfg=206
    hi Title           ctermfg=166
    hi Todo            ctermfg=231 ctermbg=232   cterm=bold
 

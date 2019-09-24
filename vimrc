@@ -131,6 +131,18 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
 nnoremap <leader>t :CtrlP<CR>
 nnoremap <leader>b :!bundle<CR>
 
+"mapping screen splitting
+nnoremap <leader>v <C-w>v
+nnoremap <leader>s <C-w>s
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+
+"node specifics
+nnoremap <leader>nt :! NODE_ENV=test ./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --exit %<ENTER>
+nnoremap <leader>ni :! npm i
+
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
 
@@ -186,9 +198,9 @@ endfunction
 let g:ragtag_global_maps = 1
 
 " Running specs from inside vim
-map <Leader>w :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>w :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
 
 autocmd FileType python set sts=4 sw=4
 

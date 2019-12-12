@@ -9,9 +9,9 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
+Bundle 'pangloss/vim-javascript'
+Bundle 'leafgarland/typescript-vim'
 Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
@@ -29,13 +29,14 @@ Bundle 'elzr/vim-json'
 Bundle 'chemzqm/vim-jsx-improve'
 Bundle 'fatih/vim-go'
 Bundle 'w0rp/ale'
+Bundle 'jason0x43/vim-js-indent'
 
 "" Vundle Plugins
 Plugin 'rizzatti/dash.vim'
-Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'isRuslan/vim-es6'
 Plugin 'jshint/jshint'
-
+Plugin 'leafOfTree/vim-vue-plugin'
+Plugin 'mileszs/ack.vim'
 
 set encoding=utf-8
 set showcmd                     " display incomplete commands
@@ -86,9 +87,6 @@ set guioptions-=T
 
 " use comma as <Leader> key instead of backslash
 let mapleader=","
-"
-" activate mustache abbreviations
-let g:mustache_abbreviations = 1
 
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -116,13 +114,18 @@ autocmd BufNewFile,BufRead *.styl set filetype=styl
 autocmd BufNewFile,BufRead *.json set filetype=json
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
+" color scheme
 syntax on
 set background=dark
 colorscheme flejz
 
 set guitablabel=%M%t
 
-"map to CommandT TextMate style finder
+" vim js indent
+let js_indent_flat_switch=1
+let js_indent_logging=1
+
+" command p mappings
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
@@ -131,15 +134,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
 nnoremap <leader>t :CtrlP<CR>
 nnoremap <leader>b :!bundle<CR>
 
-"mapping screen splitting
-nnoremap <leader>v <C-w>v
-nnoremap <leader>s <C-w>s
-nnoremap <leader>h <C-w>h
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
-
-"node specifics
+" node specifics
 nnoremap <leader>nt :! NODE_ENV=test ./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --exit %<ENTER>
 nnoremap <leader>ni :! npm i
 
@@ -160,24 +155,19 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
-
-"key mapping for saving file
-nmap <C-s> :w<CR>
-
-"key mapping for block collapsing
-nmap <S-z> zi
-
-"key mapping for tab navigation
+" key mapping for tab navigation
 nmap <Tab> gt
 nmap <S-Tab> gT
 nmap ( ()<left>
 
-"key mapping for formatting
-nmap <C-f> =7j
+" key mapping for formatting
+nmap <C-f> =iB
 
-"key mapping for clean search
+" key mapping for clean search
 nmap <silent> <leader>/ :nohlsearch<CR>
-"snipmate setup
+
+
+" snipmate setup
 source ~/.vim/snippets/support_functions.vim
 autocmd vimenter * call s:SetupSnippets()
 
@@ -219,3 +209,7 @@ let g:ale_set_highlights = 0
 
 nmap <silent> <C-k> <Plug>(ale_next_wrap)
 nmap <silent> <C-j> <Plug>(ale_previous_wrap)
+
+" ack usage
+cnoreabbrev ack Ack! --ignore-dir={dist,build,coverage}
+nmap <C-a>a :Ack!<Space>

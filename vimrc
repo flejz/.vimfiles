@@ -160,9 +160,6 @@ nmap <Tab> gt
 nmap <S-Tab> gT
 nmap ( ()<left>
 
-" key mapping for formatting
-nmap <C-f> =iB
-
 " key mapping for clean search
 nmap <silent> <leader>/ :nohlsearch<CR>
 
@@ -212,4 +209,4 @@ nmap <silent> <C-j> <Plug>(ale_previous_wrap)
 
 " ack usage
 cnoreabbrev ack Ack! --ignore-dir={dist,build,coverage}
-nmap <C-a>a :Ack!<Space>
+nmap <C-f> :ack<Space>

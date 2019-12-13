@@ -207,6 +207,10 @@ let g:ale_set_highlights = 0
 nmap <silent> <C-k> <Plug>(ale_next_wrap)
 nmap <silent> <C-j> <Plug>(ale_previous_wrap)
 
-" ack usage
+" ag/ack usage
 cnoreabbrev ack Ack! --ignore-dir={dist,build,coverage}
 nmap <C-f> :ack<Space>
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif

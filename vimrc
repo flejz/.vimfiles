@@ -1,75 +1,42 @@
-"necessary on some Linux distros for pathogen to properly load bundles
+" SETUP
 set nocompatible                " choose no compatibility with legacy vi
-filetype on
+set encoding=utf-8
+set showcmd                     " display incomplete commands
+filetype plugin indent on       " load file type plugins + indentation
 
 " load pathogen managed plugins
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-Bundle 'pangloss/vim-javascript'
-Bundle 'leafgarland/typescript-vim'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'bling/vim-airline'
-Bundle 'kien/ctrlp.vim'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle 'rking/ag.vim'
-Bundle 'Shougo/neocomplcache'
-Bundle 'mattn/emmet-vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'tpope/vim-surround.git'
-Bundle 'elzr/vim-json'
-Bundle 'chemzqm/vim-jsx-improve'
-Bundle 'fatih/vim-go'
-Bundle 'w0rp/ale'
-Bundle 'jason0x43/vim-js-indent'
+" find - enagling native finding
+set path+=**
+set wildmenu
 
-"" Vundle Plugins
-Plugin 'rizzatti/dash.vim'
-Plugin 'isRuslan/vim-es6'
-Plugin 'jshint/jshint'
-Plugin 'leafOfTree/vim-vue-plugin'
-Plugin 'mileszs/ack.vim'
-
-set encoding=utf-8
-set showcmd                     " display incomplete commands
-filetype plugin indent on         " load file type plugins + indentation
-
-"" Whitespace
+" whitespace
 set nowrap                      " don't wrap lines
 set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
-"" Searching
+" searching
 set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
-" Off automatic backup
+" off automatic backup
 set nobackup
 set nowritebackup
 set noswapfile
-
 set history=1000                "store lots of :cmdline history
-
 set showmode                    "show current mode down the bottom
-
 set number                      "add line numbers
 set showbreak=                  "set wrap linebreak nolist
 
-"add some line space for easy reading
+" add some line space for easy reading
 set linespace=4
 
-"disable visual bell
+" disable visual bell
 set visualbell t_vb=
 
 "statusline setup
@@ -79,7 +46,6 @@ set visualbell t_vb=
 "set statusline+=%l/%L   "cursor line/total lines
 "set statusline+=\ %P    "percent through file
 set statusline=%<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
-
 set laststatus=2
 
 "turn off needless toolbar on gvim/mvim
@@ -118,28 +84,68 @@ autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 syntax on
 set background=dark
 colorscheme flejz
-
 set guitablabel=%M%t
 
-" vim js indent
+" let Vundle manage Vundle
+" required!
+Plugin 'gmarik/vundle'
+Plugin 'pangloss/vim-javascript'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'rking/ag.vim'
+Plugin 'Shougo/neocomplcache'
+Plugin 'mattn/emmet-vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'tpope/vim-surround.git'
+Plugin 'elzr/vim-json'
+Plugin 'chemzqm/vim-jsx-improve'
+Plugin 'fatih/vim-go'
+Plugin 'w0rp/ale'
+Plugin 'jason0x43/vim-js-indent'
+Plugin 'isRuslan/vim-es6'
+Plugin 'jshint/jshint'
+Plugin 'leafOfTree/vim-vue-plugin'
+Plugin 'mileszs/ack.vim'
+
+" PLUGINS
+
+" js indent
 let js_indent_flat_switch=1
 let js_indent_logging=1
 
-" command p mappings
+" ctrl p
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
 
-nnoremap <leader>t :CtrlP<CR>
-nnoremap <leader>b :!bundle<CR>
+" ale
+let b:ale_fixers = {'javascript': ['eslint']}
+let g:ale_set_highlights = 0
+nmap <silent> <C-k> <Plug>(ale_next_wrap)
+nmap <silent> <C-j> <Plug>(ale_previous_wrap)
 
-" node specifics
-nnoremap <leader>nt :! NODE_ENV=test ./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --exit %<ENTER>
-nnoremap <leader>ni :! npm i
+" ag
+cnoreabbrev ag Ag
+nmap <C-f> :ag<Space>
 
-"mark syntax errors with :signs
-let g:syntastic_enable_signs=1
+" syntastic
+let g:syntastic_enable_signs=1 " mark syntax errors with :signs
+
+" neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+
 
 " Strip trailing whitespace
 function! <SID>StripTrailingWhitespaces()
@@ -163,7 +169,6 @@ nmap ( ()<left>
 " key mapping for clean search
 nmap <silent> <leader>/ :nohlsearch<CR>
 
-
 " snipmate setup
 source ~/.vim/snippets/support_functions.vim
 autocmd vimenter * call s:SetupSnippets()
@@ -181,32 +186,9 @@ function! s:SetupSnippets()
   endtry
 endfunction
 
-" ragtag
-let g:ragtag_global_maps = 1
-
-" Running specs from inside vim
-" map <Leader>w :call RunCurrentSpecFile()<CR>
-" map <Leader>s :call RunNearestSpec()<CR>
-" map <Leader>l :call RunLastSpec()<CR>
-
 autocmd FileType python set sts=4 sw=4
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-let g:neocomplcache_enable_at_startup = 1
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
 let g:airline_powerline_fonts = 1
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'
-
-" ALE linting
-let b:ale_fixers = {'javascript': ['eslint']}
-let g:ale_set_highlights = 0
-
-nmap <silent> <C-k> <Plug>(ale_next_wrap)
-nmap <silent> <C-j> <Plug>(ale_previous_wrap)
-
-" ag/ack usage
-cnoreabbrev ag Ag
-nmap <C-f> :ag<Space>

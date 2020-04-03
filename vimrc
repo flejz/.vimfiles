@@ -90,6 +90,7 @@ set guitablabel=%M%t
 " required!
 Plugin 'gmarik/vundle'
 Plugin 'pangloss/vim-javascript'
+Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
@@ -114,6 +115,8 @@ Plugin 'isRuslan/vim-es6'
 Plugin 'jshint/jshint'
 Plugin 'leafOfTree/vim-vue-plugin'
 Plugin 'mileszs/ack.vim'
+Plugin 'cakebaker/scss-syntax.vim'
+
 
 " PLUGINS
 

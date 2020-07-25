@@ -173,7 +173,6 @@ nmap ( ()<left>
 nmap <silent> <leader>/ :nohlsearch<CR>
 
 " snipmate setup
-source ~/.vim/snippets/support_functions.vim
 autocmd vimenter * call s:SetupSnippets()
 
 if has("autocmd")

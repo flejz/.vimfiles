@@ -75,10 +75,8 @@ if has("gui_running")
   endif
 endif
 
-autocmd BufNewFile,BufRead *.jade set filetype=jade
 autocmd BufNewFile,BufRead *.styl set filetype=styl
 autocmd BufNewFile,BufRead *.json set filetype=json
-autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
 " color scheme
 syntax on
@@ -91,7 +89,6 @@ set guitablabel=%M%t
 Plugin 'gmarik/vundle'
 Plugin 'pangloss/vim-javascript'
 Plugin 'maxmellon/vim-jsx-pretty'
-Plugin 'leafgarland/typescript-vim'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
@@ -101,21 +98,17 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'rking/ag.vim'
 Plugin 'Shougo/neocomplcache'
-Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'digitaltoad/vim-jade'
 Plugin 'tpope/vim-surround.git'
 Plugin 'elzr/vim-json'
 Plugin 'chemzqm/vim-jsx-improve'
-Plugin 'fatih/vim-go'
 Plugin 'w0rp/ale'
 Plugin 'jason0x43/vim-js-indent'
 Plugin 'isRuslan/vim-es6'
 Plugin 'jshint/jshint'
 Plugin 'leafOfTree/vim-vue-plugin'
-Plugin 'mileszs/ack.vim'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'fatih/vim-go'
 
 
 " PLUGINS

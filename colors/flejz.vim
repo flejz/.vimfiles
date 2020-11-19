@@ -147,11 +147,11 @@ if &t_Co > 255
    hi ErrorMsg        ctermfg=199 ctermbg=16    cterm=bold
    hi Exception       ctermfg=118               cterm=bold
    hi Float           ctermfg=135
-   hi FoldColumn      ctermfg=67  ctermbg=235
-   hi Folded          ctermfg=67  ctermbg=235
+   hi FoldColumn      ctermfg=67  ctermbg=233
+   hi Folded          ctermfg=67  ctermbg=233
    hi Function        ctermfg=118
    hi Identifier      ctermfg=208               cterm=none
-   hi Ignore          ctermfg=244 ctermbg=235
+   hi Ignore          ctermfg=244 ctermbg=233
    hi IncSearch       ctermfg=193 ctermbg=16
 
    hi Keyword         ctermfg=206               cterm=bold
@@ -159,7 +159,7 @@ if &t_Co > 255
    hi Macro           ctermfg=193
    hi SpecialKey      ctermfg=81
 
-   hi MatchParen      ctermfg=208  ctermbg=235  cterm=bold
+   hi MatchParen      ctermfg=208  ctermbg=233  cterm=bold
    hi ModeMsg         ctermfg=229
    hi MoreMsg         ctermfg=229
    hi Operator        ctermfg=206
@@ -167,7 +167,7 @@ if &t_Co > 255
    " complete menu
    hi Pmenu           ctermfg=81  ctermbg=16
    hi PmenuSel                    ctermbg=244
-   hi PmenuSbar                   ctermbg=235
+   hi PmenuSbar                   ctermbg=233
    hi PmenuThumb      ctermfg=81
 
    hi PreCondit       ctermfg=118               cterm=bold
@@ -177,35 +177,35 @@ if &t_Co > 255
    hi Search          ctermfg=253 ctermbg=66
 
    " marks column
-   hi SignColumn      ctermfg=118 ctermbg=235
+   hi SignColumn      ctermfg=118 ctermbg=233
    hi SpecialChar     ctermfg=206               cterm=bold
    hi SpecialComment  ctermfg=38                cterm=bold
-   hi Special         ctermfg=81  ctermbg=235
+   hi Special         ctermfg=81  ctermbg=233
    hi SpecialKey      ctermfg=245
 
    hi Statement       ctermfg=206               cterm=bold
-   hi StatusLine      ctermfg=235 ctermbg=253
-   hi StatusLineNC    ctermfg=244 ctermbg=235
+   hi StatusLine      ctermfg=233 ctermbg=253
+   hi StatusLineNC    ctermfg=244 ctermbg=233
    hi StorageClass    ctermfg=208
    hi Structure       ctermfg=81
    hi Tag             ctermfg=206
    hi Title           ctermfg=166
-   hi Todo            ctermfg=231 ctermbg=235   cterm=bold
+   hi Todo            ctermfg=231 ctermbg=233   cterm=bold
 
    hi Typedef         ctermfg=81
    hi Type            ctermfg=81                cterm=none
    hi Underlined      ctermfg=244               cterm=underline
 
-   hi VertSplit       ctermfg=244 ctermbg=235   cterm=bold
+   hi VertSplit       ctermfg=244 ctermbg=233   cterm=bold
    hi VisualNOS                   ctermbg=238
-   hi Visual                      ctermbg=235
+   hi Visual                      ctermbg=238
    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
 
-   hi Normal          ctermfg=231 ctermbg=235
+   hi Normal          ctermfg=231 ctermbg=233
    hi Comment         ctermfg=38
    hi CursorLine                  ctermbg=238   cterm=none
    hi CursorColumn                ctermbg=238
-   hi LineNr          ctermfg=250 ctermbg=235
-   hi NonText         ctermfg=250 ctermbg=235
+   hi LineNr          ctermfg=250 ctermbg=233
+   hi NonText         ctermfg=250 ctermbg=233
 end

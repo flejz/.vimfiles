@@ -164,10 +164,10 @@ if &t_Co > 255
    hi MoreMsg         ctermfg=229
    hi Operator        ctermfg=206
 
-   " complete menu
+   " co233mplete menu
    hi Pmenu           ctermfg=81  ctermbg=16
-   hi PmenuSel                    ctermbg=244
-   hi PmenuSbar                   ctermbg=233
+   hi PmenuSel        ctermfg=81  ctermbg=238   cterm=bold
+   hi PmenuSbar                   ctermbg=238
    hi PmenuThumb      ctermfg=81
 
    hi PreCondit       ctermfg=118               cterm=bold

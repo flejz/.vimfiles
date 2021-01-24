@@ -19,3 +19,6 @@ sh ./fonts/install.sh
 rm -rf fonts
 ```
 After that, you might set the terminal font to a powerline font too see the special chars.
+
+# Definitive cheatsheet
+https://vim.rtorr.com/

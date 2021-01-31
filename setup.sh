@@ -16,14 +16,7 @@ PLUGIN_LIST=(
 
 LANG_LIST=(
   "fatih/vim-go"
-  "cakebaker/scss-syntax.vim"
-  "chr4/nginx.vim"
-  "chrisbra/csv.vim"
-  "ekalinin/dockerfile.vim"
-  "othree/html5.vim"
-  "pangloss/vim-javascript"
-  "stephpy/vim-yaml"
-  "vim-python/python-syntax"
+  "sheerun/vim-polyglot"
 )
 
 for i in ${PLUGIN_LIST[*]}; do

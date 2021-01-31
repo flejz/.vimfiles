@@ -26,6 +26,9 @@ set complete+=kspell
 set completeopt=menuone,longest
 set encoding=utf-8
 set expandtab smarttab
+set foldmethod=indent
+set foldnestmax=10
+set foldlevel=1
 set formatoptions=tcqrn1
 set guitablabel=%M%t
 set hidden
@@ -78,9 +81,7 @@ endif
 colorscheme flejz
 set background=dark
 
-" -----------------------------------------------------------------------------
-" Basic mappings
-" -----------------------------------------------------------------------------
+" basic mappings
 
 " key mapping for tab navigation
 nmap <Tab> gt
@@ -120,6 +121,10 @@ autocmd BufNewFile,BufRead requirements*.txt set syntax=python
 " ensure tabs don't get converted to spaces in makefiles.
 autocmd FileType make setlocal noexpandtab
 
+" opens omnifunc automatically
+au filetype go inoremap <buffer> . .<C-x><C-o>
+au filetype javascript inoremap <buffer> . .<C-x><C-o>
+
 " plugins
 
 " ctrl p
@@ -129,7 +134,7 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
 
-" go-vim
+" vim-go
 let g:go_fmt_command = "goimports"
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
@@ -141,12 +146,20 @@ let g:go_info_mode='gopls'
 let g:go_list_type = "quickfix"
 
 " ale
-let b:ale_fixers = {'javascript': ['eslint'], 'go': ['gopls']}
 let g:ale_set_highlights = 1
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 1
+let g:ale_completion_autoimport = 1
 let g:ale_completion_enabled = 1
+let g:ale_fixers = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'javascript': ['eslint'],
+      \   'go': ['gopls'],
+      \}
+let g:ale_linters = {
+      \   'javascript': ['eslint'],
+      \}
 
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -155,9 +168,7 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 let g:airline#extensions#ale#enabled = 1
 let g:airline_powerline_fonts = 1
 
-" ----------------------------------------------------------------------------
 " basic commands
-" ----------------------------------------------------------------------------
 
 " add all todo items to the quickfix list relative to where you opened vim.
 function! s:todo() abort
@@ -178,4 +189,3 @@ function! s:todo() abort
     copen
   endif
 endfunction
-

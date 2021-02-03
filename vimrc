@@ -161,6 +161,12 @@ let g:ale_linters = {
       \   'javascript': ['eslint'],
       \}
 
+let g:ale_cpp_ccls_init_options = {
+      \   'cache': {
+      \       'directory': '/tmp/ccls/cache'
+      \   }
+      \}
+
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 

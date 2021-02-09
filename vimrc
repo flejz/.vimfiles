@@ -155,10 +155,13 @@ let g:ale_completion_enabled = 1
 let g:ale_fixers = {
       \   '*': ['remove_trailing_lines', 'trim_whitespace'],
       \   'javascript': ['eslint'],
+      \   'typescript': ['tsserver'],
       \   'go': ['gopls'],
       \}
 let g:ale_linters = {
       \   'javascript': ['eslint'],
+      \   'typescript': ['tsserver'],
+      \   'go': ['gopls'],
       \}
 
 let g:ale_cpp_ccls_init_options = {

@@ -27,7 +27,7 @@ for i in ${LANG_LIST[*]}; do
   clone $i
 done
 
-echo "source ~/.vim/vimrc" > ~/.vimrc
+ln -s ~/.vim/vimrc ~/.vimrc
 echo "install https://github.com/golang/tools/blob/master/gopls for go"
 echo "install https://github.com/MaskRay/ccls for cpp"
 echo "install https://github.com/Microsoft/TypeScript/wiki/Standalone-Server-%28tsserver%29 for typescript"

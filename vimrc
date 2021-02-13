@@ -146,6 +146,11 @@ let g:go_info_mode='gopls'
 let g:go_list_type = "quickfix"
 
 " ale
+let g:ale_sign_style_error = '>>'
+let g:ale_sign_style_warning = '--'
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+
 let g:ale_set_highlights = 1
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_save = 1

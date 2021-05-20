@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git clone https://github.com/flejz/.vimfiles.git ~/.vim
+
 clone() {
   REPO="$1"
   [[ $REPO =~ \/(.*)$ ]]

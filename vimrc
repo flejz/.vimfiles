@@ -174,8 +174,8 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 
 " airline
+let g:airline_powerline_fonts = 0
 let g:airline#extensions#ale#enabled = 1
-let g:airline_powerline_fonts = 1
 
 " basic commands
 

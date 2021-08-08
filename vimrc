@@ -121,10 +121,6 @@ autocmd BufNewFile,BufRead requirements*.txt set syntax=python
 " ensure tabs don't get converted to spaces in makefiles.
 autocmd FileType make setlocal noexpandtab
 
-" opens omnifunc automatically
-au filetype go inoremap <buffer> . .<C-x><C-o>
-au filetype javascript inoremap <buffer> . .<C-x><C-o>
-
 " plugins
 
 " ctrl p
@@ -168,7 +164,7 @@ let g:ale_fixers = {
       \}
 let g:ale_linters = {
       \   'javascript': ['eslint'],
-      \   'typescript': ['tsserver'],
+      \   'typescript': ['tsserver', 'prettier'],
       \   'typescriptreact': ['tsserver'],
       \   'go': ['gopls'],
       \}
@@ -183,8 +179,12 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <C-f> :ALEFix<CR>
 
+imap <C-f> <Esc>:ALEFix<CR>
+nmap <C-f> :ALEFix<CR>
+
+
 " airline
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 
 " basic commands

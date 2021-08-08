@@ -10,9 +10,6 @@ hi SpellLocal cterm=underline ctermfg=203 guifg=#ff5f5f
 hi SpellRare cterm=underline ctermfg=203 guifg=#ff5f5f
 hi SpellCap cterm=underline ctermfg=203 guifg=#ff5f5f
 
-" omni completion
-set omnifunc=ale#completion#OmniFunc
-
 " basic settings
 
 let mapleader=" "
@@ -22,6 +19,7 @@ set autoindent
 set autoread
 set backspace=indent,eol,start
 set clipboard=unnamedplus
+set cmdheight=2
 set complete+=kspell
 set completeopt=menuone,longest
 set encoding=utf-8
@@ -49,12 +47,14 @@ set nospell
 set nostartofline
 set number
 set nowrap
+set nowritebackup
 set smartcase
 set shiftwidth=2
 set showcmd
 set showmatch
 set shortmess+=c
 set showmode
+set signcolumn=yes
 set smartcase
 set softtabstop=2
 set spelllang=en_us
@@ -68,6 +68,7 @@ set termencoding=utf-8
 set ttimeout
 set timeoutlen=1000
 set ttimeoutlen=0
+set updatetime=300
 set virtualedit=block
 set whichwrap=b,s,<,>
 set wildmenu
@@ -120,6 +121,7 @@ autocmd BufNewFile,BufRead requirements*.txt set syntax=python
 
 " ensure tabs don't get converted to spaces in makefiles.
 autocmd FileType make setlocal noexpandtab
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " plugins
 
@@ -141,51 +143,8 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_list_type = "quickfix"
 
-" ale
-let g:ale_sign_style_error = '>>'
-let g:ale_sign_style_warning = '--'
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
-
-let g:ale_set_highlights = 1
-let g:ale_lint_on_insert_leave = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 1
-let g:ale_completion_autoimport = 1
-let g:ale_completion_enabled = 1
-let g:ale_typescript_standard_use_global = 1
-let g:ale_typescript_tsserver_use_global = 1
-let g:ale_fixers = {
-      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \   'javascript': ['eslint'],
-      \   'typescript': ['eslint'],
-      \   'typescriptreact': ['eslint'],
-      \   'go': ['gopls'],
-      \}
-let g:ale_linters = {
-      \   'javascript': ['eslint'],
-      \   'typescript': ['tsserver', 'prettier'],
-      \   'typescriptreact': ['tsserver'],
-      \   'go': ['gopls'],
-      \}
-
-let g:ale_cpp_ccls_init_options = {
-      \   'cache': {
-      \       'directory': '/tmp/ccls/cache'
-      \   }
-      \}
-
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <C-f> :ALEFix<CR>
-
-imap <C-f> <Esc>:ALEFix<CR>
-nmap <C-f> :ALEFix<CR>
-
-
 " airline
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#ale#enabled = 1
 
 " basic commands
 
@@ -208,3 +167,32 @@ function! s:todo() abort
     copen
   endif
 endfunction
+
+" coc
+inoremap <silent><expr> <C-x><C-o> coc#refresh()
+
+nmap <silent> <C-f> <Plug>(coc-codeaction)
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" autocmd CursorHold * silent call CocActionAsync('highlight')
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+let g:coc_filetype_map = {
+      \ 'js': 'javascript',
+      \ 'ts': 'typescript'
+      \ }
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+

@@ -1,0 +1,95 @@
+{
+  "codeLens.enable": true,
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "c",
+    "cpp",
+    "go",
+    "python",
+    "markdown",
+    "javascript",
+    "typescript",
+    "json",
+    "jsonc"
+  ],
+  "coc.source.around.firstMatch": false,
+  "coc.source.file.ignoreHidden": false,
+  "clangd.arguments": ["--query-driver=/usr/bin/clang++", "--background-index"],
+  "diagnostic.format": "%message [%source]",
+  "diagnostic.virtualText": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.separateRelatedInformationAsDiagnostics": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.format.enable": true,
+  "eslint.packageManager": "npm",
+  "go.goplsOptions": {
+    "experimentalPostfixCompletions": true,
+    "semanticTokens": true,
+    "linksInHover": false,
+    "usePlaceholders": true,
+    "staticcheck": true
+  },
+  "list.normalMappings": {
+    "<C-c>": "do:exit"
+  },
+  "list.insertMappings": {
+    "<C-c>": "do:exit"
+  },
+  "markdownlint.config": {
+    "default": true,
+    "line-length": false
+  },
+  "signature.target": "echo",
+  "suggest.timeout": 5000,
+  "suggest.defaultSortMethod": "none",
+  "suggest.noselect": false,
+  "suggest.enablePreselect": true,
+  "typescript.format.semicolons": "ignore",
+  "typescript.autoClosingTags": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.preferences.useAliasesForRenames": false,
+  "typescript.suggest.autoImports": true,
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        },
+        "highlight": {
+          "lsRanges": true
+        }
+      }
+    },
+    "go": {
+      "command": "gopls",
+      "trace.server": "verbose",
+      "args": ["-remote", "auto"],
+      "env": {
+        "TMPDIR": "/tmp"
+      },
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "ui.semanticTokens": true,
+        "usePlaceholders": true
+      }
+    },
+    "rust": {
+      "command": "rust-analyzer",
+      "trace.server": "verbose",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml", ".git/"],
+      "progressOnInitialization": true
+    }
+  }
+}

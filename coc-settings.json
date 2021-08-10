@@ -3,8 +3,6 @@
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": [
-    "c",
-    "cpp",
     "go",
     "python",
     "markdown",
@@ -19,8 +17,11 @@
   "diagnostic.format": "%message [%source]",
   "diagnostic.virtualText": true,
   "diagnostic.checkCurrentLine": true,
+  "diagnostic.filetypeMap": {
+    "sh": "shellcheck"
+  },
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
-  "eslint.autoFixOnSave": true,
+  "eslint.autoFixOnSave": false,
   "eslint.format.enable": true,
   "eslint.packageManager": "npm",
   "go.goplsOptions": {
@@ -51,11 +52,18 @@
   "typescript.preferences.useAliasesForRenames": false,
   "typescript.suggest.autoImports": true,
   "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
     "ccls": {
       "command": "ccls",
-      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
       "rootPatterns": [
         ".ccls",
+        ".ccls-root",
         "compile_commands.json",
         ".vim/",
         ".git/",
@@ -80,7 +88,9 @@
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"],
       "initializationOptions": {
-        "ui.semanticTokens": true,
+        "gocodeCompletionEnabled": true,
+        "diagnosticsEnabled": true,
+        "lintTool": "golint",
         "usePlaceholders": true
       }
     },

@@ -1,16 +1,7 @@
 {
   "codeLens.enable": true,
   "coc.preferences.extensionUpdateCheck": "daily",
-  "coc.preferences.formatOnType": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "go",
-    "python",
-    "markdown",
-    "javascript",
-    "typescript",
-    "json",
-    "jsonc"
-  ],
+  "coc.preferences.formatOnType": false,
   "coc.source.around.firstMatch": false,
   "coc.source.file.ignoreHidden": false,
   "clangd.arguments": ["--query-driver=/usr/bin/clang++", "--background-index"],
@@ -21,7 +12,7 @@
     "sh": "shellcheck"
   },
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
-  "eslint.autoFixOnSave": false,
+  "eslint.autoFixOnSave": true,
   "eslint.format.enable": true,
   "eslint.packageManager": "npm",
   "go.goplsOptions": {
